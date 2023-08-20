@@ -12,6 +12,7 @@ Contracts should be deployed with the same compiler version and flags that they 
 --------------
 
 ## uint256 is cheaper than uint8
+### uint8
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.18;
@@ -24,12 +25,42 @@ contract Counter {
 |---|---|
 | counter | 54406 | 
 
+### uint256
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.18;
 
 contract Counter {
     uint256 private counter;
+}
+```
+| Variable | Gas Cost |
+|---|---|
+| counter | 54394 | 
+
+--------------
+
+## Visibility Matters
+### Public
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.18;
+
+contract Counter {
+    uint256 public counter;
+}
+```
+| Variable | Gas Cost |
+|---|---|
+| counter | 56206 | 
+
+### Private
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.18;
+
+contract Counter {
+    uint256 public counter;
 }
 ```
 | Variable | Gas Cost |
