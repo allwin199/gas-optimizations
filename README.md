@@ -40,6 +40,23 @@ contract Counter {
 
 --------------
 
+## No need to initialize variables with default values
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.18;
+
+contract Counter {
+    uint256 private counter = 0;
+}
+```
+| Variable | Gas Cost |
+|---|---|
+| counter | 54458 | 
+
+In the previous example, `counter` was not initialized and resulting in less gas
+
+--------------
+
 ## Visibility Matters
 ### Public
 ```solidity
@@ -66,6 +83,11 @@ contract Counter {
 | Variable | Gas Cost |
 |---|---|
 | counter | 54394 | 
+
+--------------
+
+
+
 
 
 
