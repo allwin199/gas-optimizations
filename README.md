@@ -100,6 +100,44 @@ contract Counter {
 - bool is 1byte and address is 20bytes, so they can fit in a single slot(each slot is 32 bytes)  
 Refer [here](https://medium.com/@bloqarl/solidity-gas-optimization-1-understanding-how-evm-works-can-save-you-gas-44c87011b295)
 
+--------------
+
+## Use Custom Errors instead of strings
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.18;
+
+contract CustomError {
+
+    error MoreThanZero();
+
+    function fund() public payable {
+        if(msg.value <= 0){
+            revert MoreThanZero();
+        }
+    }
+}
+```
+
+--------------
+
+## Use !=0 instead of <=0
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.18;
+
+contract CustomError {
+
+    error MoreThanZero();
+
+    function fund() public payable {
+        if(msg.value != 0){
+            revert MoreThanZero();
+        }
+    }
+}
+```
+since it is uint, we can check like this. This is gas efficient.
 
 
 
