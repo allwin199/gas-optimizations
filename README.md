@@ -22,6 +22,18 @@ contract Counter {
 ```
 | Variable | Gas Cost |
 |---|---|
+| counter | 54406 | 
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.18;
+
+contract Counter {
+    uint256 private counter;
+}
+```
+| Variable | Gas Cost |
+|---|---|
 | counter | 54394 | 
 
 
