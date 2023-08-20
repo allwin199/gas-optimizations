@@ -86,6 +86,19 @@ contract Counter {
 
 --------------
 
+## Arrange storage variables
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.18;
+
+contract Counter {
+    bool state;
+    address owner;
+    uint256 counter;
+}
+```
+- bool is 1byte and address is 20bytes, so they can fit in a single slot(each slot is 32 bytes)  
+Refer [here](https://medium.com/@bloqarl/solidity-gas-optimization-1-understanding-how-evm-works-can-save-you-gas-44c87011b295)
 
 
 
